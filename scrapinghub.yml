@@ -1,7 +1,7 @@
 # scrapinghub.yml
 version: '1.0'
 
-project: 778118  # Replace with your actual project ID
+project: 778125  # Replace with your actual project ID
 
 build:
   dockerfile: Dockerfile  # Specify the Dockerfile to build your project
