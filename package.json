@@ -1,0 +1,10 @@
+{
+  "name": "my-spring-boot-app",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "java -jar target/math.jar"
+  },
+  "dependencies": {
+
+  }
+}
