@@ -1,13 +1,13 @@
-# Faza 1: Construirea aplicației
+# Phase 1: Build the application
 FROM openjdk:17-jdk-slim AS build
 WORKDIR /app
 COPY . .  
 RUN mvn clean package -DskipTests
 
-# Faza 2: Crearea imaginii de producție
+# Phase 2: Create the production image
 FROM openjdk:11-jre-slim
 WORKDIR /app
-COPY --from=build /math.jar ./math.jar
+# Adjust the filename based on your actual artifact ID and version
+COPY --from=build /app/target/Math-1.0-SNAPSHOT.jar ./math.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "math.jar"]
-
