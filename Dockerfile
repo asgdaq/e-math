@@ -1,5 +1,5 @@
 # Faza 1: Construirea aplicației
-FROM openjdk:17-jdk-slimAS build
+FROM openjdk:17-jdk-slim AS build
 WORKDIR /app
 COPY . .  
 RUN mvn clean package -DskipTests
