@@ -21,24 +21,24 @@ public class MathApplication {
 		SpringApplication.run(MathApplication.class, args);
 	}
 
-	@GetMapping("/")
+	@GetMapping("")
 	public String home(){
-		return "/Home.html.html";
+		return "Home.html.html";
 	}
 
-	@GetMapping("/Adunare.html")
+	@GetMapping("Adunare.html")
 	public String Adunare(){
-		return "/Adunare.html";
+		return "Adunare.html";
 	}
 
-	@GetMapping("/Inmultirea.html")
+	@GetMapping("Inmultirea.html")
 	public String Inmultirea(){
-		return "/Inmultire.html";
+		return "Inmultire.html";
 	}
 
-	@GetMapping("/Procente.html")
+	@GetMapping("Procente.html")
 	public String Procente(){
-		return "/Procente.html";
+		return "Procente.html";
 	}
 
 	int BigMaxAdunare = 0;
