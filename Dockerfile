@@ -11,6 +11,6 @@ RUN mvn clean package -DskipTests
 # Phase 2: Create the production image
 FROM openjdk:11-jre-slim
 WORKDIR /app
-COPY --from=build /app/target/Math-1.0-SNAPSHOT.jar ./math.jar
+COPY --from=build /app/target/Math.jar ./Math.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "math.jar"]
