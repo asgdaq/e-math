@@ -1,4 +1,8 @@
-FROM openjdk:17-jdk-alpine
-VOLUME /tmp
-COPY target/*.jar Math.jar
-ENTRYPOINT ["java", "-jar", "Math.jar"]
+FROM maven:3.8.5-openjdk-17 AS build
+COPY  . .
+RUN mvn clean package -DskipTests
+
+FROM openjdk:17.0.1-jdk-slim
+COPY --from=build /target/demo-0.0.1-SNAPSHOT.jar Math.jar
+EXPOSE 8080
+ENTRYPOINT ["java" ,  "-jar" , "Math.jar"]
