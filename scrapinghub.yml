@@ -1,6 +1,6 @@
 # scrapinghub.yml
 version: '1.0'
-project: Math  # Replace with your actual project name
+project: e-math  # Replace with your actual project name
 
 # Define a build step if you're using Docker
 build:
