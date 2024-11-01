@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body style="background-color:#faebd7;">
+<div id="display">00:00:00</div>
+<button onclick="start()">Start</button>
+<button onclick="stop()">Stop</button>
+<button onclick="reset()">Reset</button>
+
+<script>
+    let startTime, updatedTime, difference, tInterval;
+    let running = false;
+
+    function start() {
+        if (!running) {
+            startTime = new Date().getTime();
+            tInterval = setInterval(updateDisplay, 1000);
+            running = true;
+        }
+    }
+
+    function stop() {
+        clearInterval(tInterval);
+        running = false;
+    }
+
+    function reset() {
+        clearInterval(tInterval);
+        document.getElementById('display').innerHTML = '00:00:00';
+        running = false;
+    }
+
+    function updateDisplay() {
+        updatedTime = new Date().getTime();
+        difference = updatedTime - startTime;
+
+        let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        hours = (hours < 10) ? "0" + hours : hours;
+        minutes = (minutes < 10) ? "0" + minutes : minutes;
+        seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+        document.getElementById('display').innerHTML = hours + ":" + minutes + ":" + seconds;
+    }
+
+    function captureTime() {
+        // Preluăm timpul din cronometru și îl stocăm în câmpul ascuns
+        document.getElementById('hiddenTime').value = document.getElementById('display').innerHTML;
+    }
+
+    // Pornirea cronometrului la deschiderea paginii
+    window.onload = start;
+    window.onload = function() {
+        start();  // Pornește cronometrul
+        document.getElementById('answer').focus();  // Setează focus pe input
+    };
+</script>
+
+<hr>
+
+<div style="font-size:200px;text-align:center;">
+    <span th:text="${Random_1}"></span>
+    <span th:text="${Operation}"></span>
+    <span th:text="${Random_2}"></span>
+</div>
+
+<form action="/Answer" method="POST" onsubmit="captureTime()">
+    <label>Answer:
+        <input type="number" id="answer" name="answer">
+    </label>
+
+    <input type="hidden" id="hiddenTime" name="time">
+    <input type="submit" value="Next">
+</form>
+
+<form action="/Back" method="POST">
+    <input type="submit" value="Back">
+</form>
+
+<hr>
+
+<h4 th:each="list : ${list}" th:text="${list}"></h4>
+</body>
+</html>

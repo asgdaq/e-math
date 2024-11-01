@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela&display=swap" rel="stylesheet">
+    <title>Adunare</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #faebd7;
+            font-family: 'Varela', sans-serif;
+            overflow: hidden;
+        }
+
+        form {
+            background-color: #d1c9bd;
+            padding: 20px 75px;
+            text-align: center;
+            max-width: calc(100vw - 50px);
+            box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);
+                box-sizing: border-box
+            border-radius: 8px; /* Added rounded corners */
+        }
+
+    </style>
+
+</head>
+<body>
+<div>
+
+    <form action="/Go" method="POST" style="font-size: 18px; text-align: left; line-height: 1.6;">
+        <p style="font-size: 25px; text-align: center; font-weight: bold;">Enter data:</p>
+        <hr>
+
+        <label style="display: block; margin-bottom: 10px;">
+            Max. Input:
+            <input type="number" name="number" value="0" min="0" required
+                   style="width: 100%; padding: 8px; margin-top: 5px; border-radius: 5px;
+                    border: 1px solid #ccc;">
+        </label>
+
+        <fieldset style="border: none; padding: 0; margin-bottom: 20px;">
+            <legend style="font-weight: plain;">Operation:</legend>
+
+            <label style="display: block; margin-bottom: 5px;">
+                <input type="radio" name="Operation" value="+" checked>
+                +
+            </label>
+            <label style="display: block; margin-bottom: 5px;">
+                <input type="radio" name="Operation" value="-">
+                -
+            </label>
+            <label style="display: block; margin-bottom: 5px;">
+                <input type="radio" name="Operation" value="on">
+                Random
+            </label>
+        </fieldset>
+
+        <div style="text-align: center;">
+            <input type="submit" value="Start!" style="padding: 10px 20px; background-color: #6d757d; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>
