@@ -1,0 +1,9 @@
+# scrapinghub.yml
+version: '1.0'
+project: Math  # Replace with your actual project name
+
+# Define a build step if you're using Docker
+build:
+  dockerfile: Dockerfile  # Specify the Dockerfile to build your project
+  image: username/math:latest  # Specifică numele imaginii
+
