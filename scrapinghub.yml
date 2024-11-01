@@ -1,5 +1,4 @@
 version: "1.0"
-image: registry:5000/scrapinghub/java:8  # Use an appropriate Java base image for your project
 build:
-  script:
-    - mvn clean install  # Command to build the Maven project
+  dockerfile: Dockerfile  # Specify the Dockerfile to build your project
+  image: registry:5000/scrapinghub/java:8  # Specify the base image if required
