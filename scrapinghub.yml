@@ -1,4 +1,3 @@
 version: "1.0"
 build:
   dockerfile: Dockerfile  # Specify the Dockerfile to build your project
-  image: registry:5000/scrapinghub/java:8  # Specify the base image if required

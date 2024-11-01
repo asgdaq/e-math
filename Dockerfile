@@ -5,7 +5,7 @@ FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR /app
 
 # Copy the Maven project files to the container
-COPY . /app
+COPY . .
 
 # Build the Maven project (creates a JAR file in the target directory)
 RUN mvn clean install
